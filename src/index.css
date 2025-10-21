@@ -1,0 +1,74 @@
+html, body, #root { height: 100%; }
+body { background: var(--bg); margin: 0; }
+
+.layout {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 780px) 280px; 
+  gap: 16px;
+  max-width: 1320px;
+  margin: 24px auto 48px;
+  padding: 0 12px;
+  align-items: start;
+}
+
+.panel { border-radius: 14px; padding: 14px; }
+.panel--left, .panel--right {
+  max-height: calc(100vh - 48px);    
+  overflow: auto;     
+}
+.panel--right { position: sticky; top: 16px; }
+
+
+.image-container { list-style: none; padding: 0; margin: 0; }
+.gallery { margin-bottom: 10px; }
+
+
+.card {
+  background: var(--card);
+  color: var(--text);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+}
+
+
+.object-title {
+  max-width: 720px;
+  margin: 6px auto 10px;
+  line-height: 1.25;
+  text-wrap: balance; 
+  text-align: center;
+}
+
+
+.chip-row { flex-wrap: wrap; gap: 10px; justify-content: center; }
+
+
+.image-wrap {
+  display: grid; place-items: center;
+  background: #222; border-radius: 12px; padding: 10px; margin-bottom: 14px;
+  max-width: 740px; margin-left: auto; margin-right: auto;
+}
+.hero-image {
+  width: 100%;
+  height: auto;
+  max-height: 60vh;   
+  object-fit: contain;
+  border-radius: 10px;
+  display: block;
+}
+
+
+.thumb-button { background: transparent; border: 0; padding: 0; cursor: pointer; display: block; }
+.gallery-screenshot { width: 100%; height: auto; border-radius: 10px; }
+
+
+.ban-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+.pill { border-radius: 999px; padding: 6px 10px; }
+
+
+@media (max-width: 1024px) {
+  .layout { grid-template-columns: 1fr; }
+  .panel--right { position: static; max-height: none; }
+  .panel--left { order: 3; }
+}
